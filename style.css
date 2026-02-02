@@ -1,0 +1,339 @@
+/* CSS 구조 세팅 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#typeSelect {
+  flex-direction: row;
+  gap: 40px;
+}
+
+#ensembleOption {
+  flex-direction: column;
+  gap: 30px;
+}
+
+#addEnsembleArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#ensembleList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#readFeedback {
+  flex-direction: row;
+  gap: 40px;
+}
+
+/* 페이지 숨김 */
+.hidden {
+  display: none;
+}
+
+/* 화면 배경 및 형태 설정 */
+body {
+  background: #1a1a1a;
+  color: #fff;
+  font-family: Pretendard, Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#ensembleDate {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.ensembleDateText {
+  font-size: 0.95rem;
+}
+
+/* 달력 */
+input[type='date'] {
+  color: #fff;
+  background-color: #1a1a1a;
+  border: 1px solid #555;
+  padding: 10px;
+}
+
+/* 크롬, 엣지 달력 아이콘 */
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* 아이콘 흰색 */
+  cursor: pointer;
+}
+
+/* 버튼 설정 */
+.backBtn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.backBtn:hover {
+  opacity: 1;
+}
+
+#enterBtn {
+  margin-top: 30px;
+  padding: 12px 32px;
+  border: 1px solid #fff;
+}
+
+#enterBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+#addEnsembleBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+
+  background: transparent;
+  border: 2px solid #fff;
+
+  color: #fff;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+#addEnsembleBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.deleteBtn:hover {
+  color: #ff4d4d;
+}
+
+#partEnterBtn {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.inputcard:hover {
+  border-color: #fff;
+  transform: translateY(-8px);
+}
+
+.readcard:hover {
+  border-color: #fff;
+  transform: translateY(-8px);
+}
+
+.readfeedcard:hover {
+  border-color: #fff;
+  transform: translateY(-8px);
+}
+
+.suggestionfeedcard:hover {
+  border-color: #fff;
+  transform: translateY(-8px);
+}
+
+.inputMemberBtn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.inputMemberBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.inputBandBtn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.inputBandBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+#submitFeedbackBtn {
+  margin-top: 40px;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+#submitFeedbackBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* 카드 모양 */
+.inputcard {
+  width: 220px;
+  height: 280px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.readcard {
+  width: 220px;
+  height: 280px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.ensembleCard {
+  width: 260px;
+  padding: 14px 18px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ensembleCard:hover {
+  border-color: #fff;
+  transform: translateY(-4px);
+}
+
+.partcard {
+  background: gray;
+  width: 420px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.readfeedcard {
+  width: 220px;
+  height: 280px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.suggestionfeedcard {
+  width: 220px;
+  height: 280px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+/* 피드백 입력 창 */
+
+.feedbackTitle {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#feedbackForm {
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 80px;
+}
+
+#feedbackForm h2 {
+  margin-bottom: 30px;
+}
+
+.feedbackItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedbackItem label {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.feedbackItem textarea {
+  height: 180px;
+}
+
+.feedbackItem textarea:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+.feedbackGrid {
+  width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}

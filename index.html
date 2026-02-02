@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Band Feedback</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="home">
+      <h1>CHOYEON BAND FEEDBACK</h1>
+      <br />
+      <h3>[ BAND MEMBER ]</h3>
+      <br />
+      <h5>Vocal/Guitar : Kim MyeongJin</h5>
+      <h5>Main Guitar : Park HaeSeong</h5>
+      <h5>Keyboard : Kim DoYun</h5>
+      <h5>Bass : Hwang JuHo</h5>
+      <h5>Drum : Kim HeeRa</h5>
+      <button id="enterBtn">ENTER</button>
+    </section>
+
+    <section id="typeSelect" class="hidden">
+      <button class="backBtn" data-target="home">← 뒤로</button>
+      <h3>Select Type →</h3>
+      <div class="inputcard" data-type="input">피드백 입력</div>
+      <div class="readcard" data-type="read">피드백 읽기</div>
+    </section>
+
+    <section id="ensembleOption" class="hidden">
+      <button class="backBtn" data-target="typeSelect">← 뒤로</button>
+
+      <div id="ensembleList">
+        <div id="addEnsembleArea">
+          <button id="addEnsembleBtn">+</button>
+          <input type="date" id="ensembleDate" class="hidden" />
+        </div>
+      </div>
+    </section>
+
+    <section id="partSelect" class="hidden">
+      <button class="backBtn" data-target="ensembleOption">← 뒤로</button>
+      <h1>Select Part</h1>
+      <br />
+      <br />
+      <div class="partcard" data-type="member">
+        Vocal/Guitar Feedback <button class="inputMemberBtn">Input</button>
+      </div>
+      <div class="partcard" data-type="member">
+        Main Guitar Feedback <button class="inputMemberBtn">Input</button>
+      </div>
+      <div class="partcard" data-type="member">
+        Keyboard Feedback <button class="inputMemberBtn">Input</button>
+      </div>
+      <div class="partcard" data-type="member">
+        Bass Feedback <button class="inputMemberBtn">Input</button>
+      </div>
+      <div class="partcard" data-type="member">
+        Drum Feedback <button class="inputMemberBtn">Input</button>
+      </div>
+      <div class="partcard" data-type="member">
+        About Ensemble Feedback<button class="inputBandBtn">Input</button>
+      </div>
+    </section>
+
+    <section id="feedbackForm" class="hidden">
+      <button class="backBtn" data-target="partSelect">← 뒤로</button>
+
+      <h2 class="feedbackTitle">피드백 입력</h2>
+      <h4>* 적을 내용이 없을 시 "없음"을 꼭 적어주세요.</h4>
+      <br />
+      <div class="feedbackGrid">
+        <div class="feedbackItem">
+          <label>1. 담당 파트 숙련도</label>
+          <textarea
+            placeholder="연주 숙련도에 대한 전반적인 피드백을 작성해주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>2. 박자 밀림 / 앞섬 여부</label>
+          <textarea
+            placeholder="박자, 리듬 안정성에 대한 의견을 작성해주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>3. 톤 / 볼륨 어울림</label>
+          <textarea
+            placeholder="톤, 볼륨, 다른 파트와의 밸런스를 적어주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>4. 추가 피드백</label>
+          <textarea
+            placeholder="추가적으로 하고 싶은 말이나 피드백을 적어주세요."
+          ></textarea>
+        </div>
+      </div>
+
+      <button id="submitFeedbackBtn" class="submitBtn">저장</button>
+    </section>
+
+    <section id="bandFeedbackForm" class="hidden">
+      <button class="backBtn" data-target="partSelect">← 뒤로</button>
+
+      <h2 class="feedbackTitle">피드백 입력</h2>
+      <h4>* 적을 내용이 없을 시 "없음"을 꼭 적어주세요.</h4>
+      <br />
+      <div class="feedbackGrid">
+        <div class="feedbackItem">
+          <label>1. 합주 분위기</label>
+          <textarea
+            placeholder="합주할 때 전반적인 분위기가 어떤지 작성해주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>2. 합주 평가</label>
+          <textarea
+            placeholder="합주할 때 전반적인 합/톤 밸런스/BPM 등을 평가해주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>3. 합주 환경</label>
+          <textarea
+            placeholder="합주할 때 합주실 위치/크기 등의 환경에 대해 작성해주세요."
+          ></textarea>
+        </div>
+
+        <div class="feedbackItem">
+          <label>4. 건의 사항</label>
+          <textarea
+            placeholder="밴드에 필요한 부분/바꿨으면 하는 부분 등을 적어주세요."
+          ></textarea>
+        </div>
+      </div>
+
+      <button id="submitFeedbackBtn" class="submitBtn">저장</button>
+    </section>
+
+    <section id="readFeedback" class="hidden">
+      <button class="backBtn" data-target="typeSelect">← 뒤로</button>
+      <h3>Select Option →</h3>
+      <div class="readfeedcard" data-type="member">Read</div>
+      <div class="suggestionfeedcard" data-type="suggestion">Suggestion</div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
