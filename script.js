@@ -19,6 +19,8 @@ const bandFeedbackRead = document.getElementById('bandFeedbackRead');
 /* ---------------- 전역 변수 ---------------- */
 let selectedDate = '';
 let selectedMember = '';
+// ngrok 도메인
+const NGROK_URL = 'https://unslacking-germanely-sylvester.ngrok-free.dev';
 
 /* ---------------- 화면 전환 ---------------- */
 function show(target) {
@@ -99,7 +101,7 @@ if (enterBtn) enterBtn.onclick = () => show(typeSelect);
 document.querySelector('.inputcard').onclick = () => show(ensembleOption);
 document.querySelector('.readcard').onclick = () => {
   show(readFeedback);
-  loadFeedbackCards(); // 피드백 읽기 시 DB에서 자동 생성
+  // loadFeedbackCards(); // 원본에 주석처리 되어있음
 };
 
 /* 타입 선택 2 */
@@ -140,13 +142,13 @@ ensembleDateInput.onchange = async () => {
   deleteBtn.onclick = async (e) => {
     e.stopPropagation();
     try {
-      // DB 삭제
+      // DB 삭제 (ngrok URL 적용)
       const memberDelete = await fetch(
-        `http://localhost:8080/api/feedback/member/all?date=${date}`,
+        `${NGROK_URL}/api/feedback/member/all?date=${date}`,
         { method: 'DELETE' },
       );
       const bandDelete = await fetch(
-        `http://localhost:8080/api/feedback/band/all?date=${date}`,
+        `${NGROK_URL}/api/feedback/band/all?date=${date}`,
         { method: 'DELETE' },
       );
 
@@ -213,7 +215,7 @@ async function submitMemberFeedback() {
   }
 
   try {
-    const res = await fetch('http://localhost:8080/api/feedback/member', {
+    const res = await fetch(`${NGROK_URL}/api/feedback/member`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -243,7 +245,7 @@ async function submitBandFeedback() {
   };
 
   try {
-    const res = await fetch('http://localhost:8080/api/feedback/band', {
+    const res = await fetch(`${NGROK_URL}/api/feedback/band`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -262,7 +264,10 @@ async function loadMemberFeedbackDates() {
   memberReadDateList.innerHTML = '';
 
   try {
-    const res = await fetch('http://localhost:8080/api/feedback/member/dates');
+    // ngrok 경고 페이지 우회 헤더 추가
+    const res = await fetch(`${NGROK_URL}/api/feedback/member/dates`, {
+      headers: { 'ngrok-skip-browser-warning': 'true' },
+    });
     if (!res.ok) {
       alert('날짜 목록 불러오기 실패');
       return;
@@ -297,7 +302,7 @@ async function loadMemberFeedbackDates() {
 
         try {
           const res = await fetch(
-            `http://localhost:8080/api/feedback/member/all?date=${date}`,
+            `${NGROK_URL}/api/feedback/member/all?date=${date}`,
             { method: 'DELETE' },
           );
 
@@ -343,7 +348,8 @@ document.querySelectorAll('.readMemberBtn').forEach((btn) => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/feedback/member?date=${selectedDate}`,
+        `${NGROK_URL}/api/feedback/member?date=${selectedDate}`,
+        { headers: { 'ngrok-skip-browser-warning': 'true' } },
       );
       if (!res.ok) {
         alert('피드백 조회 실패');
@@ -387,7 +393,9 @@ async function loadBandFeedbackDates() {
   bandReadDateList.innerHTML = '';
 
   try {
-    const res = await fetch('http://localhost:8080/api/feedback/band/dates');
+    const res = await fetch(`${NGROK_URL}/api/feedback/band/dates`, {
+      headers: { 'ngrok-skip-browser-warning': 'true' },
+    });
     if (!res.ok) {
       alert('밴드 날짜 목록 불러오기 실패');
       return;
@@ -421,7 +429,7 @@ async function loadBandFeedbackDates() {
 
         try {
           const res = await fetch(
-            `http://localhost:8080/api/feedback/band/all?date=${date}`,
+            `${NGROK_URL}/api/feedback/band/all?date=${date}`,
             { method: 'DELETE' },
           );
 
@@ -459,7 +467,8 @@ async function loadBandFeedbackDates() {
 async function loadBandFeedbackRead() {
   try {
     const res = await fetch(
-      `http://localhost:8080/api/feedback/band?date=${selectedDate}`,
+      `${NGROK_URL}/api/feedback/band?date=${selectedDate}`,
+      { headers: { 'ngrok-skip-browser-warning': 'true' } },
     );
 
     if (!res.ok) {
